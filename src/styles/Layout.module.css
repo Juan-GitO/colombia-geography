@@ -176,28 +176,51 @@
 }
 
 .pageHeader {
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+/* Subtle Colombian Tricolor accent bar under the page header */
+.pageHeader::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 140px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    #fcd116 0%,
+    #fcd116 50%,
+    #003893 50%,
+    #003893 75%,
+    #ce1126 75%,
+    #ce1126 100%
+  );
 }
 
 .badge {
   display: inline-block;
-  background-color: var(--accent-light);
-  color: var(--accent-primary);
-  font-size: 0.8rem;
+  background-color: #111927;
+  color: #fcd116;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.25rem 0.7rem;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
 .title {
-  font-size: 2.2rem;
-  line-height: 1.2;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 800;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
 }
 
@@ -212,9 +235,23 @@
 }
 
 .sectionTitle {
-  font-size: 1.45rem;
-  color: var(--accent-primary);
-  margin-bottom: 1rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.sectionTitle::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 1.35rem;
+  background-color: #fcd116;
+  border-radius: 3px;
 }
 
 .grid2 {
@@ -234,8 +271,16 @@
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
-  padding: 1.75rem;
+  padding: 2rem;
   box-shadow: var(--shadow-sm);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardAccentTop {
+  border-top: 4px solid #fcd116;
 }
 
 .card h3 {
@@ -260,14 +305,17 @@
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0; /* Keeps bottom aligned with adjacent card */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .mediaImage {
   width: 100%;
-  max-height: 440px;
+  flex: 1;
+  min-height: 280px;
   object-fit: cover;
-  background-color: #e5ece9;
 }
 
 .figcaption {
@@ -305,23 +353,31 @@
 
 /* Scripture / Callout Quote Box */
 .quoteBox {
-  background-color: var(--accent-light);
-  border-left: 5px solid var(--accent-primary);
-  padding: 1.5rem 2rem;
-  border-radius: 0 var(--radius) var(--radius) 0;
+  position: relative;
+  background: linear-gradient(135deg, #111927 0%, #1e293b 100%);
+  color: #f8fafc;
+  border-left: 5px solid #fcd116;
+  padding: 2.25rem 2.5rem;
+  border-radius: var(--radius);
   margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-md);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
   font-style: italic;
-  color: var(--text-primary);
 }
 
 .quoteCitation {
   display: block;
-  margin-top: 0.75rem;
+  margin-top: 1rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.95rem;
   font-style: normal;
   font-weight: 700;
-  color: var(--accent-primary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fcd116;
 }
-
 /* Documentary & Podcast Resource Links */
 .resourceList {
   list-style: none;
@@ -470,3 +526,22 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
+/* Highlight Pills for Location & Geography Stats */
+.metaPillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.metaPill {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}

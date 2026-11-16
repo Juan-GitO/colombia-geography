@@ -24,6 +24,12 @@ export default function References() {
             <li className={styles.apaItem}>
               United States Geological Survey. (2026). <em>Tectonic summary and seismic hazard map of [Country Name]</em>. U.S. Department of the Interior. https://www.usgs.gov/
             </li>
+            <li className={styles.apaItem}>
+              ProQuest. (2026). Colombia: Land and Climate. CultureGrams Online Edition. Retrieved from http://online.culturegrams.com/world/world_country_sections.php?cid=35&cn=Colombia&sname=Land_and_Climate&snid=1.
+            </li>
+            <li className={styles.apaItem}>
+              Convention on Biological Diversity. (2026). <em>Colombia: Biodiversity and Conservation</em>. Retrieved from https://www.cbd.int/countries/profile/?country=co
+            </li>
           </ul>
         </article>
       </section>
