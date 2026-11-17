@@ -28,7 +28,7 @@ export default function App() {
           </Routes>
         </main>
         <footer className={styles.footer}>
-          Physical Sciences Research Portfolio • Built with React & TypeScript
+          PS 120 Research Portfolio • Built with React & TypeScript
         </footer>
       </div>
     </HashRouter>

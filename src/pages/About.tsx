@@ -14,7 +14,7 @@ export default function About() {
       <section className={styles.section}>
         <article className={`${styles.card} ${styles.cardAccentTop}`}>
           <div>
-            <h3>My Ties to Colombia</h3>
+            <h3>My Ties To Colombia</h3>
             <p>
               I have a deep relationship with Colombia. I was born in Cali, Valle del Cauca, and spent my early childhood in that beautiful city. My family has deep roots in Colombia, we have traced our lineage back several generations, to our ancestors who first made the voyage from Spain to the Americas.
             </p>

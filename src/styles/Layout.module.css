@@ -256,10 +256,15 @@
 
 .grid2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* Strict 50/50 split across the full width */
   gap: 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .grid2 {
+    grid-template-columns: 1fr; /* Stacks cleanly on mobile screens */
+  }
+}
 .grid3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -544,4 +549,381 @@
   padding: 0.4rem 0.85rem;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
+}
+
+/* Compact Image + Text Callout Inside Cards */
+.cardMediaCallout {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 0.9rem;
+  background-color: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid #fcd116;
+  border-radius: 8px;
+}
+
+.cardThumb {
+  width: 110px;
+  height: 135px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.cardMediaText {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.cardMediaText strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 520px) {
+  .cardMediaCallout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cardThumb {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+  }
+}
+
+/* Full-Width Span Utility for Historical Card */
+.fullWidthCard {
+  grid-column: 1 / -1;
+}
+
+/* Demographics Visual Strip */
+.demoStrip {
+  background: linear-gradient(135deg, #111927 0%, #1e293b 100%);
+  color: #f8fafc;
+  border-radius: var(--radius);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-md);
+  border-top: 4px solid #fcd116;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.demoBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 1.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.demoBlock:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.demoLabel {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.bigStat {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.1rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: #fcd116;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.demoSubtext {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+/* Urban vs. Rural Meter */
+.urbanHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.6rem;
+}
+
+.urbanPercent {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.ruralPercent {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 14px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #fcd116 0%, #38bdf8 100%);
+  border-radius: 999px;
+}
+
+/* Ethnicities Stacked Bar & Legend */
+.stackedBar {
+  display: flex;
+  width: 100%;
+  height: 16px;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 0.4rem 0 1.1rem;
+  gap: 2px;
+}
+
+.ethList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 1rem;
+}
+
+.ethItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: #e2e8f0;
+}
+
+.ethDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ethValue {
+  font-weight: 700;
+  color: #ffffff;
+  margin-right: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .demoBlock {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 0;
+    padding-bottom: 1.5rem;
+  }
+
+  .demoBlock:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+/* Clickable Thumbnail with "Expand" Hover Overlay */
+.thumbWrapper {
+  position: relative;
+  width: 110px;
+  height: 135px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.thumbWrapper .cardThumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.thumbOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(17, 25, 39, 0.72);
+  color: #fcd116;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.thumbWrapper:hover .thumbOverlay,
+.thumbWrapper:focus-visible .thumbOverlay {
+  opacity: 1;
+}
+
+.thumbWrapper:hover .cardThumb {
+  transform: scale(1.07);
+}
+
+/* Full-Screen Image Lightbox Modal */
+.lightboxBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(10, 15, 25, 0.88);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: zoom-out;
+  animation: fadeInModal 0.2s ease;
+}
+
+.lightboxContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+}
+
+.lightboxImage {
+  max-width: 100%;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid rgba(252, 209, 22, 0.45);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65);
+}
+
+.lightboxClose {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #111927;
+  color: #fcd116;
+  border: 2px solid #fcd116;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+}
+
+.lightboxClose:hover {
+  background-color: #fcd116;
+  color: #111927;
+}
+
+.lightboxCaption {
+  margin-top: 0.85rem;
+  color: #f8fafc;
+  font-size: 0.95rem;
+  text-align: center;
+  max-width: 650px;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Economy Card Bullet Metrics & Export Tags */
+.econList {
+  list-style: none;
+  margin: 0.5rem 0 1.25rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.econItem {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0.65rem 0.9rem;
+  background-color: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid #fcd116;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.econValue {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.exportLabel {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+}
+
+.exportTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+}
+
+.exportTag {
+  background-color: #f1f5f9;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
